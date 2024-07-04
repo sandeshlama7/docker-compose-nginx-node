@@ -1,0 +1,15 @@
+version: '3.9'
+services:
+  node:
+    build:
+      context: ./Node
+      dockerfile: Dockerfile
+
+  nginx:
+    depends_on:
+      - node
+    build:
+      context: ./Nginx
+      dockerfile: Dockerfile
+    ports:
+      - 8001:80
